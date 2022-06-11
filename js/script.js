@@ -10,8 +10,15 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      window.location.href = "./slide.html";
-    }
+  // Desconectar a conta
+function logout() {
+   firebase.auth().signOut()
+  .then(() => {
+    window.location.href = "./html/login.html";
+  }).catch(() => {
+    alert("Erro ao fazer logout");
   });
+}
+
+
+  

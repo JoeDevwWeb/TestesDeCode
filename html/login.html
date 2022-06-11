@@ -4,24 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login</title>
+  <title>Tela de login</title>
   <link rel="stylesheet" href="./style.css">
 </head>
-<body>
 
-<button type="button" id="Odio" onclick="logout()">Sair</button>
-
-<ul id="lista"></ul>
-
-
+<body class="centralizar">
+ 
+      <form class="formularioSignIn centralizar">
+        <h1>Logar</h1>
+        <input type="email" name="email" id="email">
+        <input type="password" name="password" id="password">
+        <button type="button" onclick="login()">Entrar</button>
+      </form>
+      
 </body>
 
 <script defer src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
-<script defer src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
 <script defer src="../js/script.js"></script>
-<script defer src="../js/guarda.js"></script>
-<script defer src="../js/home.js"></script>
+<script defer src="../js/auth.js"></script>
 
 
 </html>
