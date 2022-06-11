@@ -1,4 +1,4 @@
-const firebaseConfig = {
+  const firebaseConfig = {
     apiKey: "AIzaSyAAGqIkpR4nVkdoxgsCDpxYFutEJ0O_mOY",
     authDomain: "diariodoaluno-d32c8.firebaseapp.com",
     projectId: "diariodoaluno-d32c8",
@@ -9,4 +9,9 @@ const firebaseConfig = {
   
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  const storage = firebase.storage();
+  
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+      window.location.href = "./slide.html";
+    }
+  });

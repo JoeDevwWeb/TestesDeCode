@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  
+  <style>
+    
+    .slider {
+      width: 300px;
+      height: 300px;
+      background: powderblue;
+      overflow: hidden;
+    
+    }
+    .slider > .slider-content {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100% ;
+        transition: all 500ms ease;
+    
+      }
+    
+      .slider > .slider-content > .slider-item {
+        flex: 0 0 auto;
+        width: 100% ;
+      }
+    
+      .slider > input:nth-child(1):checked ~ .slider-content {
+        transform: translateX(0% );
+      }
+    
+      .slider > input:nth-child(2):checked ~ .slider-content {
+        transform: translateX(-100% );
+      }
+      .slider > input:nth-child(3):checked ~ .slider-content {
+        transform: translateX(-200% );
+      }
+    
+      .slider > input:nth-child(4):checked ~ .slider-content {
+        transform: translateX(-300% );
+      }
+  </style>
+</head>
+
+<body>
+
+    <section class="slider">
+      <input name='slide' type="radio">
+      <input name='slide' type="radio" checked>
+      <input name='slide' type="radio">
+      <input name='slide' type="radio">
+    
+      <div class="slider-content">
+        <div class="slider-item">1</div>
+        <div class="slider-item">2</div>
+        <div class="slider-item">3</div>
+        <div class="slider-item">4</div>
+      </div>
+    </section>
+    
+
+</body>
+
+</html>
