@@ -9,6 +9,7 @@
   
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
   
   // Desconectar a conta
 function logout() {
@@ -18,7 +19,7 @@ function logout() {
   }).catch(() => {
     alert("Erro ao fazer logout");
   });
-}
+};
 
 
   

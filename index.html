@@ -1,27 +1,89 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login</title>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/f6748ef481.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+    
+    <!-- Css -->
+    <link rel="stylesheet" href="./css/raiz.css">
+    <link rel="stylesheet" href="./home.css">
+    <title>Home</title>
 </head>
 <body>
+    
+    <header class="header">
+        
+        <div class="barra">
+          
+        <!-- Botão -->
+         <div class="btnFerramentas">
+            <i id="btnOpen" class="fa-solid fa-bars"></i>
+         </div>
+         
+        <!-- Logo -->
+        <div class="logo"><a href="/">
+            <img id="logo" src="./logo.png" alt="logo do site">
+            <p>Diário do Aluno</p>
+        </a></div>
+          
+        </div>
+        
+      
+        <!-- Barra de busca -->
+        <div class="busca">
+            <input type="text" name="busca" id="barraPesquisa">
+            <i class="fa-solid fa-magnifying-glass"></i>
+       </div>
+       
+    </header>
 
-<button type="button" id="Odio" onclick="logout()">Sair</button>
+<!-- Barra de ferramentas -->
+     <aside class="barraferramentas">
 
-<ul id="lista"></ul>
-
-
-</body>
-
+        <div class="btnFerramentas">
+            <i id="btnClose" class="fa-solid fa-close"></i>
+        </div>
+        <div class="perfil">
+            <img id="perfil" src="./foto.jpg" alt="foto do perfil">
+            <p id="userName">Joe46</p>
+        </div>
+        <ul>
+          <li><a href="/">
+              <i class="fa-solid fa-house"></i>
+              Início</a></li>
+          <li><a href="./html/projetos.html">
+              <i class="fa-solid fa-award"></i>
+              Projetos</a></li>
+          <li><a href="./html/guia.html">
+              <i class="fa-solid fa-circle-info"></i>
+              Guia</a></li>
+          <li><a href="./html/configuracoes.html">
+              <i class="fa-solid fa-gear"></i>
+              Configurações</a></li>
+        </ul>
+         <!-- Botao de deslogar a conta -->
+         <div id="deslogar" onclick="logout()">
+             <i class="fa-solid fa-arrow-right-from-bracket"></i>
+         </div>
+         
+      </aside>
+     <button type="button" onclick="loading()">Loading</button>
+    
+ </body>
+  
 <script defer src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
-<script defer src="../js/script.js"></script>
-<script defer src="../js/guarda.js"></script>
-<script defer src="../js/home.js"></script>
+<script defer src="https://www.gstatic.com/firebasejs/9.6.7/firebase-storage-compat.js"></script>
+<script defer src="./js/script.js"></script>
+<script defer src="./js/loading.js"></script>
+<script defer src="./js/home.js"></script>
 
 
 </html>

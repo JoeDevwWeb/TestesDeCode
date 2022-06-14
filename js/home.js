@@ -1,43 +1,55 @@
-post();
+// Botao do sidebar
+$(document).ready(function(){
+    
+    $('#btnOpen').click(function(){
+            $('.barraferramentas').css("left","0");
+    });
+    $('#btnClose').click(function(){
+        $('.barraferramentas').css("left","-240px");
+});
+});
 
-function post(){
-  firebase.firestore()
-    .collection('projetos')
-    .get()
-    .then(snapshot => {
-        console.log(snapshot);  
-    })
+
+
+const store = firebase.firestore();
+const storage = firebase.storage();
+
+const Foto = storage.ref("projetos").child("https://firebasestorage.googleapis.com/v0/b/diariodoaluno-d32c8.appspot.com/o/projetos%2Fimagem1.jpg?alt=media&token=5933e0e4-7590-447d-83c3-4c1b29907174");
+
+
+function imagem(src, width, heigth, alt){
+  var img = document.createElement('img');
+  img.src = src; 
+  img.width = width;
+  img.heigth = heigth;
+  img.alt = alt;
+  document.body.appendChild(img);
 };
 
-function addTransactionsToScreen(transactions) {
-  const lista = document.getElementById('lista');
-  
-  transactions.forEach(transactions =>  {
-    const li = document.createElement('li');
-    
-    const legenda = document.createElement('h2');
-    legenda.innerHTML = transactions.legenda;
-    li.appendChild(legenda);
-    
-    const autor = document.createElement('p');
-    autor.innerHTML = transactions.autor;
-    li.appendChild(autor);
-    
-    
-    lista.appendChild(li);
-  });
-  
+function storageOnComplete(file) {
+  // The file param would be a File object from a file selection event in the browser.
+  // See:
+  // - https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications
+  // - https://developer.mozilla.org/en-US/docs/Web/API/File
+
+  const metadata = {
+    'contentType': file.type
+  };
+
+  // [START storage_on_complete]
+  const storageRef = firebase.storage().ref();
+  storageRef.child('projetos/imagem1.jpg' + file.name).put(file, metadata)
+    .then((snapshot) => {
+      console.log('Uploaded', snapshot.totalBytes, 'bytes.');
+      console.log('File metadata:', snapshot.metadata);
+      // Let's get a download URL for the file.
+      snapshot.ref.getDownloadURL().then((url) => {
+        console.log('File available at', url);
+        // ...
+      });
+    }).catch((error) => {
+      console.error('Upload failed', error);
+      // ...
+    });
+  // [END storage_on_complete]
 };
-
-const postagem = [{
-    legenda: 'Tanque de Guerra',
-    date: '12-04-2022',
-    autor: 'Joe'
-}, {
-    legenda: 'Mural escolar',
-    date: '11-03-201',
-    autor: 'Lucas'
-}
-];
-
-
