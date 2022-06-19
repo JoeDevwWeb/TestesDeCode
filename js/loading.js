@@ -24,18 +24,18 @@ function imagem(src, width, heigth, alt){
 };
 
 
-function addTransactionsToScreen(transactions) {
+function addTransactionsToScreen(postagem) {
   const lista = document.getElementById('lista');
   
-  transactions.forEach(transactions =>  {
+  postagem.forEach(postagem =>  {
     const li = document.createElement('li');
     
     const legenda = document.createElement('h2');
-    legenda.innerHTML = transactions.legenda;
+    legenda.innerHTML = postagem.legenda;
     li.appendChild(legenda);
     
     const autor = document.createElement('p');
-    autor.innerHTML = transactions.autor;
+    autor.innerHTML = postagem.autor;
     li.appendChild(autor);
     
     

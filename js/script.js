@@ -22,4 +22,32 @@ function logout() {
 };
 
 
+let storageRef = firebase.storage()
+  .ref('imagens');
+  
+storageRef.child('imagen1.jpg').getDownloadURL()
+  .then(url=>{
+    console.log(url);
+  }).catch(e=>{
+    console.log(e)
+  })
+  
+function upload(){
+  let file = document.getElementById("files")
+  .files[0]
+  console.log(file);
+  
+  let thisRef = storageRef.child(file.name)
+  
+  thisRef.put(file).then(res=>{
+    console.log('Upload completo')
+    alert('Upload completo')
+  }).catch(e=>{
+    console.log(e)
+  })
+}
+
+
+
+
   
